@@ -1,0 +1,23 @@
+nav{
+    background-color: #eeeeee; /* Color de fondo */
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1%;
+    border-bottom: 2px solid #c6c6c6; /* Borde inferior */
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Alinear elementos a los extremos */
+    align-items: center; 
+    gap: 18px;
+}
+nav a {
+    text-decoration: none; /* Quitar subrayado de los enlaces */
+    color: inherit; /* Heredar color de texto */
+    margin-right: -55%; /* Espacio entre enlaces */
+    padding:  -8%;
+  }
+  
+  nav a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse sobre los enlaces */
+  }
+  

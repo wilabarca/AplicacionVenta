@@ -1,0 +1,148 @@
+/* Estilos para el formulario principal */
+.form {
+    border-radius: 18px;
+    background-color: #eeeeee;
+    color: #000;
+    font-size: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #c6c6c6;
+    width: 49%;
+    height: 55%;
+    position: absolute;
+    top: 100px;
+    left: 23%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1.02);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  .titl-19{
+       margin-top: -36%;
+       font-size: 140%;
+       font-family: sans-serif;
+       position: absolute;
+       margin-left: 38%;
+  }
+  .form-group {
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group img {
+    position: absolute;
+    top: -75px;
+    width: 50%;
+    height: 429px;
+    left: -5%;
+  }
+  
+  .form-control {
+    width: 37%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    margin-left: 49%;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+    color: #555;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .form-group label {
+    position: absolute;
+    top: 0.75rem;
+    left: calc(49% + 0.75rem); /* Ajustar la posición izquierda de la etiqueta */
+    font-size: 16px;
+    color: #555;
+    pointer-events: none;
+    transition: all 0.2s ease;
+  }
+  
+  .form-control:focus + label,
+  .form-control:not(:placeholder-shown) + label {
+    top: -0.75rem;
+    left: calc(42% + 0.-29rem); /* Ajustar la posición izquierda de la etiqueta */
+    font-size: 14px;
+    color: #1683f7;
+   font-family: sans-serif;
+  }
+  
+  .form-control:placeholder-shown + label {
+    top: 0.75rem;
+    font-family: sans-serif;
+    left: calc(55% + 0.999rem); /* Ajustar la posición izquierda de la etiqueta */
+    font-size: 15px;
+    color: #555;
+  }
+  .btn {
+    width: 6.5em;
+    height: 2.0em;
+    margin: 0.5em;
+    margin-left: 49%;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .btn:hover {
+    color: black;
+  }
+  
+  .btn:after {
+    content: "";
+    background: white;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+  }
+  
+  .btn:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  
+  
