@@ -1,10 +1,10 @@
-import Layout from "../Components/Atomos/Layout/Layout";
-import Card from "../Components/Moleculas/Card/Card";
-import Footer from "../Components/Organismos/Footer/Footer";
-import Header from "../Components/Organismos/Header/Header";
-import Navar from "../Components/Organismos/Navar/Navar";
+import Layout from "../../Components/Atomos/Layout/Layout";
+import Card from "../../Components/Moleculas/Card/Card";
+import Footer from "../../Components/Organismos/Footer/Footer";
+import Header from "../../Components/Organismos/Header/Header";
+import Navar from "../../Components/Organismos/Navar/Navar";
 
-const Home = () => {
+const Customer = () => {
    return (
       <div>
          <Header></Header>
@@ -20,4 +20,4 @@ const Home = () => {
    );
 };
 
-export default Home;
+export default Customer;

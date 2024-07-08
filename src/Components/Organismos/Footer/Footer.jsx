@@ -13,10 +13,10 @@ const Footer = () => {
                 <a href="https://www.facebook.com/profile.php?id=100065104508189">
                     <FontAwesomeIcon icon={faFacebookSquare} />
                 </a>
-                <FontAwesomeIcon icon={faTwitter} style={{ color: "#858585" }} />
-                <FontAwesomeIcon
-                    icon={faInstagramSquare}
-                    style={{ color: "#a3a3a3" }}
+                <FontAwesomeIcon icon={faTwitter} style={{ 
+                    color: "#858585" }} />
+                <FontAwesomeIcon icon={faInstagramSquare} style={{ 
+                    color: "#a3a3a3" }}
                 />
             </div>
             <div className="navbar">
