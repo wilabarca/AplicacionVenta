@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
-import logo from "./../../assets/form.png";
-import "../Form/FormRegistro.css";
-import Button from "../../Components/Atomos/Button/Button";
+import logo from "../../../assets/form.png";
+import "../FormRecord/FormRegistro.css";
+import Button from "../../../Components/Atomos/Button/Button";
 
 const FormRegistro = () => {
   return (

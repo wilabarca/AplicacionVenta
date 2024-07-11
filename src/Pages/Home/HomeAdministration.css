@@ -1,0 +1,19 @@
+.nav-header {
+    background-color: #eeeeee; /* Color de fondo */
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1%;
+    border-bottom: 2px solid #c6c6c6; /* Borde inferior */
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    align-items: center; 
+    gap: 18px;
+}
+
+.nav-header p {
+    font-family: sans-serif;
+    margin: 0; /* Asegura que no haya margen adicional */
+    padding: 0; /* Asegura que no haya padding adicional */
+    font-size: 2rem; /* Ajusta el tamaño de la fuente según sea necesario */
+}

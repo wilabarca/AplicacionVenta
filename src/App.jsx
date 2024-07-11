@@ -1,26 +1,34 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Customer from './Pages/Home/Customer';
-import FormRegistro from '../src/Pages/Form/FormRegistro';
-import FormSesion from './Pages/Form/FormLogin';
-import Blouse from './Pages/Coat';
-import Adress from './Pages/Adress';
-import UploadProduct from './Pages/Form/Uploadproduct';
-import Home from './Pages/MainView/Home';
-
+import HomeAdministration from './Pages/Home/HomeAdministration';
+import FormAdministrator from './Pages/Form/FormAdministration/FormAdministrator';
+import FormLogin from './Pages/Form/FormLogin/FormLogin';
+import FormRegistro from './Pages/Form/FormRecord/FormRegistro';
+import Uploadproduct from './Pages/Form/Uploadproduct/Uploadproduct';
+import Blouses from './Pages/Products/Blouses';
+import Coat from './Pages/Products/Coat';
+import Dresses from './Pages/Products/Dresses';
+import Shirts from './Pages/Products/Shirts';
+import Ties from './Pages/Products/Ties';
+import Wallets from './Pages/Products/Wallets';
 function App() {
   return (
     <Router>
       <div>
         <Routes>
-          <Route path='/' element ={<Home />} />
-          <Route path="/Customer" element={<Customer />} />
-          <Route path='/FormSesion' element={<FormSesion />} />
-          <Route path="/Registro" element={<FormRegistro />} />
-          <Route path='/Blouse' element={<Blouse/>} />
-          <Route path='/Form' element={<Adress/>} />
-          <Route path='/uploadproduct' element={<UploadProduct />} />
-          {/* Agrega más rutas según sea necesario */}
+          <Route path='/' element ={<Customer />} />
+          <Route path='/HomeAdministration' element ={<HomeAdministration />} />
+          <Route path='/FormAdministrator' element = {<FormAdministrator />} />
+          <Route path='/FormLogin' element = {<FormLogin />} />
+          <Route path='/FormRegistro' element = {<FormRegistro />} />
+          <Route path='/Uploadproduct' element = {<Uploadproduct />} />
+          <Route path='/Blouses' element = {<Blouses />} />
+          <Route path='/Coat' element = {<Coat />} />
+          <Route path='/Dresses' element = {<Dresses />} />
+          <Route path='/Shirts' element = {<Shirts />} />
+          <Route path='/Ties' element = {<Ties />} />
+          <Route path='/Wallets' element = {<Wallets />} />
         </Routes>
       </div>
     </Router>

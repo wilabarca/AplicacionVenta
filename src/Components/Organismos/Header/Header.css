@@ -5,11 +5,13 @@ header {
     border-bottom: 2px solid #c6c6c6;
     display: flex;
     align-items: center;
-    
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 61px;
 }
 
 img {
-    width: 4%;
-    margin-left: 30px; 
-  
+    width: auto;
+    height: 50px;
+    margin-left: 15px;
 }

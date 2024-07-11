@@ -5,9 +5,10 @@ import Header from "../../Components/Organismos/Header/Header";
 import Navar from "../../Components/Organismos/Navar/Navar";
 
 const Customer = () => {
+   const userName = "Iniciar Sesion";
    return (
       <div>
-         <Header></Header>
+         <Header userName={userName} ></Header>
          <Navar></Navar>
          <Layout></Layout>
          <Card

@@ -1,12 +1,15 @@
+
+
 const Titulo = () => {
     return (
         <div>
+            
             <h1 style={{
                 color: 'black',
                 fontSize: '120%',
                 fontFamily: 'sans-serif',
                 textAlign: 'left',
-                marginLeft: '23px'
+                marginLeft: '-11px'
             }}>
                 El Rincon De 
             </h1>
@@ -15,11 +18,12 @@ const Titulo = () => {
                 fontSize: '120%',
                 fontFamily: 'sans-serif',
                 textAlign: 'left',
-                marginLeft: '28px',
+                marginLeft: '-8px',
                 marginTop: '-10%' 
             }}>
                 Los Textiles
             </h2>
+            
         </div>
     );
 }

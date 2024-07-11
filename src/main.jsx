@@ -5,47 +5,72 @@ import './index.css'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import Customer from './Pages/Home/Customer.jsx'
-import FormRegistro from './Pages/Form/FormRegistro.jsx'
-import Blouse from './Pages/Coat.jsx'
-import Adress from './Pages/Adress.jsx'
-import UploadProduct from './Pages/Form/Uploadproduct.jsx'
-import FormSesion from './Pages/Form/FormLogin.jsx'
-import Home from './Pages/MainView/Home.jsx'
+import HomeAdministration from './Pages/Home/HomeAdministration.jsx'
+import FormAdministrator from './Pages/Form/FormAdministration/FormAdministrator.jsx'
+import FormLogin from './Pages/Form/FormLogin/FormLogin.jsx'
+import FormRegistro from './Pages/Form/FormRecord/FormRegistro.jsx'
+import Uploadproduct from './Pages/Form/Uploadproduct/Uploadproduct.jsx'
+import Blouses from './Pages/Products/Blouses.jsx'
+import Coat from './Pages/Products/Coat.jsx'
+import Dresses from './Pages/Products/Dresses.jsx'
+import Shirts from './Pages/Products/Shirts.jsx'
+import Ties from './Pages/Products/Ties.jsx'
+import Wallets from './Pages/Products/Wallets.jsx'
 const router =  createBrowserRouter([
   {
     Path : '/',
     element : <App></App>
   },
   {
-     path :'/',
-     element : <Home></Home>
+    path :'/',
+     element : <Customer></Customer>
   },
   {
-    path : '/Customer',
-    element : <Customer></Customer>
-
+     path : 'HomeAdministration',
+     element : <HomeAdministration></HomeAdministration>
   },
   {
-    path : '/FormSesion',
-    element : <FormSesion></FormSesion>
+     path: '/FormAdministrator',
+     element : <FormAdministrator></FormAdministrator>
   },
   {
-    path : '/Registro',
-    element : <FormRegistro></FormRegistro>
+     path: '/FormLogin',
+     element : <FormLogin></FormLogin>
   },
   {
-    path: '/Blouse',
-    element: <Blouse></Blouse>  
+     path : '/FormRegistro',
+     element : <FormRegistro></FormRegistro>
   },
   {
-    path: '/Adress',
-    element : <Adress></Adress>  
+     path : '/Uploadproduct',
+     element : <Uploadproduct></Uploadproduct>
   },
   {
-    path: '/uploadproduct',
-    element: <UploadProduct></UploadProduct>
+     path : '/Blouses',
+     element : <Blouses></Blouses>
+  },
+  {
+     path : '/Coat',
+     element : <Coat></Coat>
+  },
+  {
+     path : '/Dresses',
+     element : <Dresses></Dresses>
+  },
+  {
+     path : '/Shirts',
+     element : <Shirts></Shirts>
+  },
+  {
+  path : '/Ties',
+     element : <Ties></Ties>
+  },
+  {
+     path : '/Wallets',
+     element : <Wallets></Wallets>
 
   }
+  
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
