@@ -16,7 +16,7 @@ const Sesion = ({ name, userName }) => {
                 backgroundColor: '#f0f0f0',
             }}
         >
-            <Link to='/Registro' style={{ textDecoration: 'none' }}>
+            <Link to='/FormLogin' style={{ textDecoration: 'none' }}>
                 <button
                     type="button"
                     style={{

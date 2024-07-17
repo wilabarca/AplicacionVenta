@@ -1,32 +1,29 @@
+/* Formulario de corbata */
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Link } from 'react-router-dom';  // Asegura la importación de Link
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';  // Importa el ícono correcto
 import Button from "../../../Components/Atomos/Button/Button";
 import Header from "../../../Components/Organismos/Header/Header";
 import Footer from "../../../Components/Organismos/Footer/Footer";
-import "../Uploadproduct/uploadproduct.css";  // Asegura la importación del archivo CSS
+import "../FormTie/FormTie.css";
+import { Link } from 'react-router-dom';
 
-const Uploadproduct = () => {
+const FormTie = () => {
   const username = "Cerrar Sesion";
-
   return (
     <div>
       <Header userName={username} />
-
-      {/* Contenedor del encabezado */}
-      <div className="header-container-col-123">
-        <div className="navigation-out">
-         <Link to="/HomeAdministration">
-            <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#4e535a", fontSize: "160%", marginLeft: "40px" }} />
+      <div className="nav-header-col-23">
+        <div className="out">
+          <Link to="/HomeAdministration">
+          <FontAwesomeIcon icon={faArrowLeft} style={{ color: "#4e535a", fontSize: "160%", marginLeft: "152%"}} />
           </Link>
         </div>
       </div>
-
-      {/* Formulario de carga de productos */}
-      <div className="product-form">
-        <h1 className="Product">Producto a Subir</h1>
+      
+      <div className="product-upload-form">
+        <h1 className="product-upload-title">Producto a Subir</h1>
         <div className="form-group">
           <label>Nombre del Producto</label>
           <input type="text" />
@@ -34,14 +31,6 @@ const Uploadproduct = () => {
         <div className="form-group">
           <label>Subir Imagen</label>
           <input type="file" />
-        </div>
-        <div className="form-group">
-          <label>Tallas Disponibles</label>
-          <div className="sizes">
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-          </div>
         </div>
         <div className="form-group">
           <label>Cantidad Producto</label>
@@ -60,14 +49,12 @@ const Uploadproduct = () => {
         <div className="form-group">
           <label>Descripcion</label>
           <textarea></textarea>
-          <Button name="Subir" className="btn-subir" />
+          <Button name="Subir" className="btn-upload" />
         </div>
       </div>
-
-      {/* Pie de página */}
       <Footer />
     </div>
   );
 };
 
-export default Uploadproduct;
+export default FormTie;

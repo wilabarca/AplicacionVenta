@@ -1,28 +1,29 @@
 nav {
-  background-color: #eeeeee; /* Color de fondo */
+  background-color: #eeeeee;
   color: rgb(0, 0, 0);
-font-family: sans-serif;
-font-size: 101%;
+  font-family: sans-serif;
+  font-size: 101%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1%;
-  border-bottom: 2px solid #c6c6c6; /* Borde inferior */
-  display: flex; /* Usar flexbox para alinear elementos */
-  justify-content: space-between; /* Alinear elementos a los extremos */
+  border-bottom: 2px solid #c6c6c6;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  
 }
 
 nav a {
-  text-decoration: none; /* Quitar subrayado de los enlaces */
-  color: inherit; /* Heredar color de texto */
-  margin-right:-999px; /* Margen derecho entre enlaces */
+  text-decoration: none;
+  color: inherit;
+  margin-right: -310px; /* Ajusta el margen derecho según sea necesario */
 }
 
 nav a:hover {
-  text-decoration: underline; /* Subrayado al pasar el mouse sobre los enlaces */
+  text-decoration: underline;
 }
 
 .icon-cart {
-  color: #000000; 
-  font-size: 20px; /* Tamaño del icono */
-  margin-right: 49px; /* Margen derecho para separar del último enlace */
+  color: #000000;
+  font-size: 20px;
+  margin-right: 70px; /* Ajusta el margen derecho del icono según sea necesario */
 }

@@ -16,6 +16,9 @@ import Dresses from './Pages/Products/Dresses.jsx'
 import Shirts from './Pages/Products/Shirts.jsx'
 import Ties from './Pages/Products/Ties.jsx'
 import Wallets from './Pages/Products/Wallets.jsx'
+import FormTie from './Pages/Form/FormTie/FormTie.jsx'
+import Vieweorder from './Pages/vieworder/ViewWorder.jsx'
+
 const router =  createBrowserRouter([
   {
     Path : '/',
@@ -44,6 +47,14 @@ const router =  createBrowserRouter([
   {
      path : '/Uploadproduct',
      element : <Uploadproduct></Uploadproduct>
+  },
+  {
+    path : '/ViewWorder',
+    element :<Vieweorder></Vieweorder>
+  },
+  {
+    path : '/FormTie',
+    element : <FormTie></FormTie>
   },
   {
      path : '/Blouses',

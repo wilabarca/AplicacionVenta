@@ -2,6 +2,7 @@ import Card from "../../Components/Moleculas/Card/Card";
 import Footer from "../../Components/Organismos/Footer/Footer";
 import Header from "../../Components/Organismos/Header/Header";
 import Navar from "../../Components/Organismos/Navar/Navar";
+import '../Products/Product.css'
 /* Vistas de Blusas */
 
 const Blouses = () =>{
@@ -9,7 +10,7 @@ const Blouses = () =>{
     return(
         <div>
             <Header userName={userName}></Header>
-            <Navar></Navar>
+            <Navar className="ti-12" title="Blusas"></Navar>
             <Card
                 src="https://scontent.ftgz1-2.fna.fbcdn.net/v/t39.30808-6/321438506_492847649582170_317694879027163817_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEj_IrUqXhPceFYfOCAMJ4Yjy-ypdv8hxKPL7Kl2_yHEsUDyarJCxmvn_AzUhj2behGhO5TTANM5aLmIOa34I4s&_nc_ohc=anGWybZZNTwQ7kNvgHQ0FWr&_nc_ht=scontent.ftgz1-2.fna&gid=ADjAP83O9wgOOAKVuCOuvpZ&oh=00_AYARJYF9BfxQX4c3g2ZF2yw-jfBeO4nYOGNuAfLLaEEvNw&oe=668C1343"
                 name="Saco Casual"

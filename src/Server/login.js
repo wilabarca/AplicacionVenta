@@ -1,5 +1,5 @@
 import axios from "axios";
-import fetch from "axios";
+
 
 // eslint-disable-next-line no-unused-vars
 export const login = ()=> {
