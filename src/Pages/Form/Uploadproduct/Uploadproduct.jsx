@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  // Asegura la importación de Link
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +9,20 @@ import Footer from "../../../Components/Organismos/Footer/Footer";
 import "../Uploadproduct/uploadproduct.css";  // Asegura la importación del archivo CSS
 
 const Uploadproduct = () => {
+  const [, setImage] = useState(null);
   const username = "Cerrar Sesion";
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result);
+      localStorage.setItem('uploadedImage', reader.result); // Guardar la imagen en localStorage
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div>
@@ -33,7 +46,7 @@ const Uploadproduct = () => {
         </div>
         <div className="form-group">
           <label>Subir Imagen</label>
-          <input type="file" />
+          <input type="file" onChange={handleImageUpload} />
         </div>
         <div className="form-group">
           <label>Tallas Disponibles</label>

@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import logo from "../../../assets/form.png";
-import "../FormRecord/FormRegistro.css";
-import Button from "../../../Components/Atomos/Button/Button";
 
 const FormRegistro = () => {
   const [user, setUser] = useState("");
@@ -12,44 +10,85 @@ const FormRegistro = () => {
   const [passwordRepeat, setPasswordRepeat] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordRepeat, setShowPasswordRepeat] = useState(false);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [error, setError] = useState("");
 
-  const validateUser = (value) => {
-    const regex = /^[a-zA-Z0-9]{4,}$/; // Solo letras y números, al menos 4 caracteres
-    return regex.test(value);
-  };
-
-  const validatePassword = (value) => {
-    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/; // Al menos 6 caracteres, una mayúscula, una minúscula y un número
-    return regex.test(value);
-  };
-
-  const validatePasswordRepeat = (value) => {
-    return value === password;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Limpiar cualquier error previo al enviar el formulario
 
-    let formErrors = [];
-
+    // Validaciones del formulario
     if (!validateUser(user)) {
-      formErrors.push("El usuario debe tener al menos 4 caracteres y solo puede contener letras y números.");
+      setError("El campo Usuario es requerido");
+      return;
     }
-
     if (!validatePassword(password)) {
-      formErrors.push("La contraseña debe tener al menos 6 caracteres, una mayúscula, una minúscula y un número.");
+      setError("La contraseña debe tener al menos 8 caracteres");
+      return;
     }
-
     if (!validatePasswordRepeat(passwordRepeat)) {
-      formErrors.push("Las contraseñas no coinciden.");
+      setError("Las contraseñas no coinciden");
+      return;
     }
 
-    if (formErrors.length > 0) {
-      alert(formErrors.join("\n"));
-    } else {
-      // Enviar el formulario
-      console.log("Formulario enviado");
+    const newUser = {
+      "role": role,
+      "user": user,
+      "first_name": firstName,
+      "last_name": lastName,
+      "email": email,
+      "password": password,
+      "created_by": "Administrador",
+      "deleted": "0"
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/user/createuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUser),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Error al registrar el usuario');
+      }
+
+      console.log('Usuario registrado correctamente', data);
+
+      // Limpiar el formulario después de un registro exitoso
+      setUser('');
+      setPassword('');
+      setPasswordRepeat('');
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setRole('');
+      setError(''); // Limpiar cualquier mensaje de error después del registro exitoso
+
+    } catch (error) {
+      console.error('Error al registrar el usuario:', error.message);
+      setError('Error al registrar el usuario: ' + error.message);
+      // Puedes manejar el error aquí, mostrar un mensaje al usuario, etc.
     }
+  };
+
+  const validateUser = (user) => {
+    return user.trim() !== '';
+  };
+
+  const validatePassword = (password) => {
+    return password.length >= 8;
+  };
+
+  const validatePasswordRepeat = (passwordRepeat) => {
+    return passwordRepeat === password;
   };
 
   return (
@@ -68,6 +107,39 @@ const FormRegistro = () => {
           onChange={(e) => setUser(e.target.value)}
         />
         <label htmlFor="user">Usuario</label>
+      </div>
+      <div className="form-group">
+        <input
+          id="firstName"
+          type="text"
+          className="form-control"
+          placeholder=" "
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label htmlFor="firstName">Nombre</label>
+      </div>
+      <div className="form-group">
+        <input
+          id="lastName"
+          type="text"
+          className="form-control"
+          placeholder=" "
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <label htmlFor="lastName">Apellido</label>
+      </div>
+      <div className="form-group">
+        <input
+          id="email"
+          type="email"
+          className="form-control"
+          placeholder=" "
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="email">Correo Electrónico</label>
       </div>
       <div className="form-group">
         <input
@@ -103,7 +175,19 @@ const FormRegistro = () => {
           <FontAwesomeIcon icon={showPasswordRepeat ? faEyeSlash : faEye} />
         </span>
       </div>
-      <Button name="Entrar" className="btn" />
+      <div className="form-group">
+        <input
+          id="role"
+          type="text"
+          className="form-control"
+          placeholder=" "
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        />
+        <label htmlFor="role">Rol</label>
+      </div>
+      {error && <p className="error-message">{error}</p>}
+      <button type="submit" className="btn">Registrar</button>
     </form>
   );
 };

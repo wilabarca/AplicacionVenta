@@ -8,7 +8,6 @@ import Customer from './Pages/Home/Customer.jsx'
 import HomeAdministration from './Pages/Home/HomeAdministration.jsx'
 import FormAdministrator from './Pages/Form/FormAdministration/FormAdministrator.jsx'
 import FormLogin from './Pages/Form/FormLogin/FormLogin.jsx'
-import FormRegistro from './Pages/Form/FormRecord/FormRegistro.jsx'
 import Uploadproduct from './Pages/Form/Uploadproduct/Uploadproduct.jsx'
 import Blouses from './Pages/Products/Blouses.jsx'
 import Coat from './Pages/Products/Coat.jsx'
@@ -18,6 +17,7 @@ import Ties from './Pages/Products/Ties.jsx'
 import Wallets from './Pages/Products/Wallets.jsx'
 import FormTie from './Pages/Form/FormTie/FormTie.jsx'
 import Vieweorder from './Pages/vieworder/ViewWorder.jsx'
+import FormRegistro from './Pages/Form/FormRecord/FormRegistro.jsx'
 
 const router =  createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router =  createBrowserRouter([
   },
   {
      path : '/FormRegistro',
-     element : <FormRegistro></FormRegistro>
+     element :<FormRegistro></FormRegistro>
   },
   {
      path : '/Uploadproduct',
