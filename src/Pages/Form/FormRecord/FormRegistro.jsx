@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import logo from "../../../assets/form.png";
+import '../FormRecord/FormRegistro.css'
 
 const FormRegistro = () => {
-  const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +13,7 @@ const FormRegistro = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [role, setRole] = useState("");
+  const [rol_id_fk, setRole] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -21,36 +21,42 @@ const FormRegistro = () => {
     setError(""); // Limpiar cualquier error previo al enviar el formulario
 
     // Validaciones del formulario
-    if (!validateUser(user)) {
-      setError("El campo Usuario es requerido");
+    if (!validateField(firstName)) {
+      setError("El campo Nombre es requerido");
+      return;
+    }
+    if (!validateField(lastName)) {
+      setError("El campo Apellido es requerido");
+      return;
+    }
+    if (!validateEmail(email)) {
+      setError("El correo electrónico no es válido");
       return;
     }
     if (!validatePassword(password)) {
       setError("La contraseña debe tener al menos 8 caracteres");
       return;
     }
-    if (!validatePasswordRepeat(passwordRepeat)) {
+    if (password !== passwordRepeat) {
       setError("Las contraseñas no coinciden");
       return;
     }
 
     const newUser = {
-      "role": role,
-      "user": user,
-      "first_name": firstName,
-      "last_name": lastName,
-      "email": email,
-      "password": password,
-      "created_by": "Administrador",
-      "deleted": "0"
+      rol_id_fk: rol_id_fk,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password,
     };
 
     try {
-      const response = await fetch('http://localhost:3000/api/user/createuser', {
+      const response = await fetch('http://localhost:5000/api/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include', // Incluir credenciales (cookies) en la solicitud
         body: JSON.stringify(newUser),
       });
 
@@ -63,7 +69,6 @@ const FormRegistro = () => {
       console.log('Usuario registrado correctamente', data);
 
       // Limpiar el formulario después de un registro exitoso
-      setUser('');
       setPassword('');
       setPasswordRepeat('');
       setFirstName('');
@@ -79,16 +84,17 @@ const FormRegistro = () => {
     }
   };
 
-  const validateUser = (user) => {
-    return user.trim() !== '';
+  const validateField = (value) => {
+    return value.trim() !== '';
   };
 
-  const validatePassword = (password) => {
-    return password.length >= 8;
+  const validateEmail = (value) => {
+    // Validación de correo electrónico básica
+    return /\S+@\S+\.\S+/.test(value);
   };
 
-  const validatePasswordRepeat = (passwordRepeat) => {
-    return passwordRepeat === password;
+  const validatePassword = (value) => {
+    return value.length >= 8;
   };
 
   return (
@@ -96,17 +102,6 @@ const FormRegistro = () => {
       <h1 className="titl-19">Registro</h1>
       <div className="form-group">
         <img src={logo} alt="logo" />
-      </div>
-      <div className="form-group">
-        <input
-          id="user"
-          type="text"
-          className="form-control"
-          placeholder=" "
-          value={user}
-          onChange={(e) => setUser(e.target.value)}
-        />
-        <label htmlFor="user">Usuario</label>
       </div>
       <div className="form-group">
         <input
@@ -181,7 +176,7 @@ const FormRegistro = () => {
           type="text"
           className="form-control"
           placeholder=" "
-          value={role}
+          value={rol_id_fk}
           onChange={(e) => setRole(e.target.value)}
         />
         <label htmlFor="role">Rol</label>

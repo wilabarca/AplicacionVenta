@@ -10,3 +10,4 @@ const Button = ({ name,className, onClick }) => {
 };
 
 export default Button;
+
